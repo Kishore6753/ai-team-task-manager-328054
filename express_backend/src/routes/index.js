@@ -1,11 +1,16 @@
 const express = require('express');
+// Add main app routes for projects, tasks, comments, files, notifications, AI
 const healthController = require('../controllers/health');
 const authRoutes = require('./auth');
+const mainRoutes = require('./main');
 
 const router = express.Router();
 
 // Mount auth routes
 router.use('/auth', authRoutes);
+
+// Mount main routes for projects/tasks/comments/etc.
+router.use('/', mainRoutes);
 
 // Health endpoint
 /**
